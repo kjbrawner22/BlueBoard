@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link href="{{ url_for('static', filename='css/room.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<p>{{ room.nickname }}</p>
+<div class="wrapper">
+  <div class="files">One</div>
+  <div class="editor">Two</div>
+  <div class="widgets">Three</div>
+  <div class="users">Four</div>
+</div>
 {% endblock %}
