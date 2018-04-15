@@ -38,7 +38,10 @@ img {
 }
 
 .nav a:hover {
-  background: white;
+  background-color: white;
+}
+
+.nav a:hover > .nav-item {
   color: black;
 }
 
@@ -57,6 +60,7 @@ img {
   z-index: 1;
   grid-area: items;
   justify-self: end;
+  border: none;
 }
 
 .nav-item {

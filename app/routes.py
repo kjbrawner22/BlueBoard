@@ -80,7 +80,7 @@ def room(link):
 	if r is None:
 		flash('You cannot join a room without an invite!')
 		return redirect(url_for('profile'))
-	title = "BlueBoard | " + link
+	title = "BlueBoard | " + r.nickname
 	session['room'] = link
 	session['email'] = current_user.email
 	return render_template('room.html', title=title, room=r)
