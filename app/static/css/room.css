@@ -1,9 +1,7 @@
 body {
   margin: 0;
 }
-div {
-  border: 1px solid black;
-}
+
 .wrapper {
 	position: relative;
 	top: 0;
@@ -12,17 +10,32 @@ div {
   display: grid;
   grid-template-areas: "a b b b c"
                        "d b b b c";
+  grid-template-columns: repeat(5, 1fr);
 }
+
 .files {
  grid-area: a;
-
 }
+
 .editor { 
   grid-area: b;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
 }
+
+#editor-wrapper {
+	width: 90%;
+}
+
+#editor {
+	height: 80vh;
+}
+
 .widgets {
  grid-area: c;
- overflow-y: scroll;
+ overflow-y: hidden;
 }
 .users {
   grid-area: d;

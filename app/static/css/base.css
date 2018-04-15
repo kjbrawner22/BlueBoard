@@ -1,14 +1,14 @@
-::-webkit-scrollbar {
-  display: none;
+html {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
 }
 
 .nav {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	height: 6vh;
-	position: static;
-	top: 0;
-	background-color: rgba(255,255,255,.3);
+	height: auto;
 }
 
 .nav-item {
