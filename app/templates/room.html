@@ -7,7 +7,11 @@
 
 {% block body %}
 <div class="wrapper">
-  <div class="files">One</div>
+  <div class="files">
+    {% for file in files %}
+    <button onclick="requestFile()">{{ file.name }}</button>
+    {% endfor %}
+  </div>
   <div class="editor">
   	<div id="editor-wrapper">
   		<div id="editor">
@@ -16,14 +20,7 @@
   	</div>
   </div>
   <div class="widgets">
-    <ul class="flex-container">  
-        <li class="flex-item">1</li>  
-        <li class="flex-item">2</li>  
-        <li class="flex-item">3</li>  
-        <li class="flex-item">4</li>  
-        <li class="flex-item">5</li>  
-        <li class="flex-item">6</li>
-    </ul>
+
   </div>
   <div class="chat">
     <textarea id="chat-body" readonly></textarea>

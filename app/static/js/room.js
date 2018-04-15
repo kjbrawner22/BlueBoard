@@ -21,6 +21,14 @@ $(document).ready(function() {
   	$('#chat-body').append(data.msg + "\n");
   });
 
+  $("#message-body").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+      var text = document.getElementById('message-body').textContent;
+      socket.emit('send message', {msg: text});
+      document.getElementById('message-body').innerHTML = "";
+    }
+  });
+
   socket.on('updated text', function(data){
     console.log("updating contents")
     if(data.delta != quill.getContents()) {

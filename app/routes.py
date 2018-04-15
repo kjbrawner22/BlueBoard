@@ -1,11 +1,19 @@
+import os
 from app import app, db
 from app.forms import LoginForm, RegisterForm, NewRoomForm
 from app.models import User, Room
 from app.utils import new_room_link
 from flask import render_template, flash, request, \
 									url_for, redirect, session
+from flask_dance.contrib.dropbox import make_dropbox_blueprint, dropbox
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
+
+dropbox_blueprint = make_dropbox_blueprint(
+    app_key="yd5njocqr8368xp",
+    app_secret="lxjl6cun9j9nkph"
+)
+app.register_blueprint(dropbox_blueprint, url_prefix="/")
 
 @app.route('/')
 @app.route('/index')

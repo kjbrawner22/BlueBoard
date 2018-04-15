@@ -12,3 +12,10 @@ def connected(msg):
 def text_change(data):
 	room = session.get('room')
 	emit('updated text', data, broadcast=True, include_self=False)
+
+@socketio.on('send message')
+def send_message(data):
+	room = session.get('room')
+	email = session.get('email')
+	msg = "{" + email + "}: " + data['msg']
+	emit('receive message', {'msg': msg}, broadcast=True)

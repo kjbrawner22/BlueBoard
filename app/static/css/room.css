@@ -1,7 +1,9 @@
-@import "compass/css3";
-
 body {
   margin: 0;
+}
+
+div {
+  border: 1px solid black;
 }
 
 .wrapper {
@@ -21,12 +23,13 @@ body {
 
 .editor { 
   grid-area: b;
-  width: 64vw; 
+  width: 64vw;
   display: flex;
   align-items: center;
   align-content: center;
   text-align: center;
   background-color: gray;
+  overflow-y: scroll;
 }
 
 #editor-wrapper {
@@ -40,30 +43,37 @@ body {
 }
 
 .widgets {
- grid-area: c;
- overflow-y: scroll;
+ grid-area: d;
  width: 18vw;
 }
 
 .chat {
-  grid-area: d;
-  border: none;
+  grid-area: c;
+  display: grid;
+  grid-template-areas: "body"
+                       "body"
+                       "body"
+                       "body"
+                       "body"
+                       "send";
   width: 18vw;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #chat-body {
-  height: 65%;
+  grid-area: body;
   width: 100%;
+  resize: none;
+  overflow-y: auto;
 }
 
 #chat-send {
-  height: 30%;
+  grid-area: send;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-y: auto;
 }
 
 .message {
@@ -77,35 +87,4 @@ body {
   background-color: gray;
   border: 1px solid white;
   overflow-y: hidden;  
-}
-
-.flex-container {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  
-  -webkit-flex-flow: column wrap;
-  justify-content: space-around;
-}
-
-.flex-item {
-  background: #5c80bc;
-  padding: 5px;
-  width: 85%;
-  height: 300px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border-radius: 10px;
-  
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center;
 }
