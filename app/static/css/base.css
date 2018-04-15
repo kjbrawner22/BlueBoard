@@ -10,12 +10,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
 }
-/*
-div {
-    background-image: url("https://images7.alphacoders.com/411/411820.jpg") !important;
-}
 
-*/
 img {
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -49,6 +44,7 @@ img {
   text-align: center;
   color: white;
   position: absolute;
+  text-shadow: 2.7px 2.7px grey;
   margin-top: 10px;
   left: 0;
   right: 0;

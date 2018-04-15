@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 
+{% block head %}
+<link href="{{ url_for('static', filename='css/profile.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
-<h2>My Rooms <a href="{{url_for('new_room')}}">New Room</a><input id="invite-input" type="text" placeholder="Place Room Invite Code Here"><button id="invite-submit">Submit</button></h2>
-{% for room in rooms %}
-<a href="{{ url_for('room', link=room.link) }}"><p>{{ room.nickname }}</p></a>
-{% endfor %}
+<div class="one">
+
+  <div>Profile Page: My Rooms
+    	<h2><a href="{{url_for('new_room')}}"></a><input id="invite-input" type="text" placeholder="Place Room Invite Code Here"><button id="invite-submit">Submit</button></h2>
+    	{% for room in rooms %}
+			<a href="{{ url_for('room', link=room.link) }}"><p>{{ room.nickname }}</p></a>
+			{% endfor %}
+ </div>
+
+</div>
 {% endblock %}
 
 {% block js %}

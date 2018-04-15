@@ -1,0 +1,21 @@
+body{
+  background-image: url("https://images.pexels.com/photos/826183/pexels-photo-826183.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+  filter: grayscale(15%);
+  background-size: cover;
+  background-origin: center;
+  background-position: 50% 50%;
+  filter: opacity(90%);
+}
+div {
+  background-color: rgba(0,0,0,0);
+}
+.one {
+  margin-top: 50px;
+  background-color: rgba(0,0,0,0);
+  width: 30vw;
+  height: 50vh;
+  border: 1px solid black;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10;
+}
