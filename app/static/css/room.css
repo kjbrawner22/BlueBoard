@@ -1,7 +1,3 @@
-::-webkit-scrollbar{
-  display: none;
-}
-
 body {
   margin: 0;
 }
@@ -9,8 +5,11 @@ div {
   border: 1px solid black;
 }
 .wrapper {
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 93vh;
   display: grid;
-  height: 99.5vh;
   grid-template-areas: "a b b b c"
                        "d b b b c";
 }
