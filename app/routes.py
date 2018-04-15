@@ -66,8 +66,8 @@ def room(link):
 	if r is None:
 		flash('You cannot join a room without an invite!')
 		return redirect(url_for(home))
-	title = "BlueBoard | " + name
-	render_template('room.html', title=title, room=r)
+	title = "BlueBoard | " + link
+	return render_template('room.html', title=title, room=r)
 
 @app.route('/profile/new-room', methods=['GET', 'POST'])
 @login_required
