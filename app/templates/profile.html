@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2>My Rooms <a href="{{url_for('new_room')}}">New Room</a></h2>
+<h2>My Rooms <a href="{{url_for('new_room')}}">New Room</a><input id="invite-input" type="text" placeholder="Place Room Invite Code Here"><button id="invite-submit">Submit</button></h2>
 {% for room in rooms %}
-<a href="{{ url_for('room', link=room.link) }}"><p>{{ room.link }}</p></a>
+<a href="{{ url_for('room', link=room.link) }}"><p>{{ room.nickname }}</p></a>
 {% endfor %}
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
 {% endblock %}

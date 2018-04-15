@@ -79,7 +79,7 @@ def room(link):
 	r = current_user.rooms.filter_by(link=link).first()
 	if r is None:
 		flash('You cannot join a room without an invite!')
-		return redirect(url_for(home))
+		return redirect(url_for('profile'))
 	title = "BlueBoard | " + link
 	session['room'] = link
 	session['email'] = current_user.email
@@ -89,11 +89,12 @@ def room(link):
 @login_required
 def invite(link):
 	r = current_user.rooms.filter_by(link=link).first()
-	if r is None:
+	if r is None and Room.query.filter_by(link=link).first() is not None:
 		room = Room(link=link)
 		current_user.rooms.append(room)
 		db.session.commit()
-	return redirect
+		return redirect('room', link=link)
+	return redirect('profile')
 
 @app.route('/profile/new-room', methods=['GET', 'POST'])
 @login_required
