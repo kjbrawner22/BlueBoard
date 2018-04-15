@@ -22,6 +22,11 @@ def index():
 		return redirect(url_for('profile'))
 	return render_template('index.html', title="BlueBoard")
 
+@app.route('/about')
+def about():
+	title = "BlueBoard | About"
+	return render_template('about.html', title=title)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if current_user.is_authenticated:
@@ -79,6 +84,16 @@ def room(link):
 	session['room'] = link
 	session['email'] = current_user.email
 	return render_template('room.html', title=title, room=r)
+
+@app.route('/invite/<link>')
+@login_required
+def invite(link):
+	r = current_user.rooms.filter_by(link=link).first()
+	if r is None:
+		room = Room(link=link)
+		current_user.rooms.append(room)
+		db.session.commit()
+	return redirect
 
 @app.route('/profile/new-room', methods=['GET', 'POST'])
 @login_required
