@@ -49,10 +49,12 @@ img {
   text-align: center;
   color: white;
   position: absolute;
+  margin-top: 10px;
   left: 0;
   right: 0;
   z-index: 0;
-  font-size: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .nav-items {
