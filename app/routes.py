@@ -1,7 +1,7 @@
 from app import app, db
 from app.forms import LoginForm, RegisterForm, NewRoomForm
-from app.models import User
-from app.utils import new_room
+from app.models import User, Room
+from app.utils import new_room_link
 from flask import render_template, flash, request, url_for, redirect
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
@@ -74,7 +74,10 @@ def room(link):
 def new_room():
 	form = NewRoomForm()
 	if form.validate_on_submit():
-		new_room()
+		link = new_room_link()
+		room = Room(link=link, nickname=form.nickname.data)
+		current_user.rooms.append(room)
+		db.session.commit()
 		return redirect(url_for('profile'))
 	title = "BlueBoard | New Room"
 	return render_template('new-room.html', title=title, form=form)
