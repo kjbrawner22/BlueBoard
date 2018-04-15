@@ -2,7 +2,8 @@ from app import app, db
 from app.forms import LoginForm, RegisterForm, NewRoomForm
 from app.models import User, Room
 from app.utils import new_room_link
-from flask import render_template, flash, request, url_for, redirect
+from flask import render_template, flash, request, \
+									url_for, redirect, session
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 
@@ -67,6 +68,8 @@ def room(link):
 		flash('You cannot join a room without an invite!')
 		return redirect(url_for(home))
 	title = "BlueBoard | " + link
+	session['room'] = link
+	session['email'] = current_user.email
 	return render_template('room.html', title=title, room=r)
 
 @app.route('/profile/new-room', methods=['GET', 'POST'])
