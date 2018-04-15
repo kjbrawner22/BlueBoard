@@ -30,12 +30,14 @@ div {
   align-items: center;
   align-content: center;
   text-align: center;
-  background-image: url("https://images7.alphacoders.com/411/411820.jpg") !important;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyUDcSCs0Kd66ii1MYs3OLxJ3JnfCy2euRgwVK7P1_VyTxUcO1mw") !important;
+  filter: grayscale(65%); 
   overflow-y: scroll;
 }
 
 #editor-wrapper {
-  width: 95%;
+  width: 96.5%;
+  height:97%;
   margin: 0 auto;
   background-color: #EDEDED;
 }
