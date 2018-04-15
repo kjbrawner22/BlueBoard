@@ -32,20 +32,21 @@ div {
   text-align: center;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyUDcSCs0Kd66ii1MYs3OLxJ3JnfCy2euRgwVK7P1_VyTxUcO1mw") !important;
   filter: grayscale(65%); 
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 #editor-wrapper {
   background-image: url("https://image.freepik.com/free-photo/watercolor-paper-texture_1194-5416.jpg");
   filter: grayscale(15%); 
   width: 96.5%;
-  height:97%;
+  height:auto;
   margin: 0 auto;
   background-color: #EDEDED;
+  overflow-y: hidden;
 }
 
 #editor {
-	height: 80vh;
+	height: 86vh;
 }
 
 .widgets {
