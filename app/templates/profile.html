@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>My Rooms <a href="{{url_for('new_room')}}">New Room</a></h2>
+{% for room in rooms %}
+<a href="{{ url_for('room', room=room.link) }}"><p>{{ room.link }}</p></a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.nickname(placeholder="Room Name") }}
+	{{ form.submit() }}
+</form>
+{% endblock %}
