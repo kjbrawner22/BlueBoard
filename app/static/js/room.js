@@ -30,7 +30,6 @@ $(document).ready(function() {
   });
 
   socket.on('updated text', function(data){
-    console.log("updating contents")
     if(data.delta != quill.getContents()) {
     	textUpdated = true;
     	quill.updateContents(data.delta);

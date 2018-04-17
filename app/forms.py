@@ -23,3 +23,7 @@ class RegisterForm(FlaskForm):
 class NewRoomForm(FlaskForm):
 	nickname = StringField('Room Name', validators=[DataRequired('Room nickname is required.')])
 	submit = SubmitField('Submit')
+
+class RoomInviteForm(FlaskForm):
+	code = StringField('Invite Code', validators=[DataRequired('Invite code is required.')])
+	submit = SubmitField('Submit')

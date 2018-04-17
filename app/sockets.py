@@ -7,8 +7,12 @@ def connected(msg):
 	room = session.get('room')
 	email = session.get('email')
 	join_room(room)
-	email = email.split("@")
+	email = email.split('@')
 	emit('status', {'msg': 'User ' + email[0] + ' has joined the room'}, room=room)
+
+@socketio.on('disconnected')
+def disconnected():
+	pass
 
 @socketio.on('text change')
 def text_change(data):

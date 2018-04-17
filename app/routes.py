@@ -1,6 +1,6 @@
 import os
 from app import app, db
-from app.forms import LoginForm, RegisterForm, NewRoomForm
+from app.forms import LoginForm, RegisterForm, NewRoomForm, RoomInviteForm
 from app.models import User, Room
 from app.utils import new_room_link
 from flask import render_template, flash, request, \
@@ -8,12 +8,6 @@ from flask import render_template, flash, request, \
 from flask_dance.contrib.dropbox import make_dropbox_blueprint, dropbox
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-
-dropbox_blueprint = make_dropbox_blueprint(
-    app_key="yd5njocqr8368xp",
-    app_secret="lxjl6cun9j9nkph"
-)
-app.register_blueprint(dropbox_blueprint, url_prefix="/")
 
 @app.route('/')
 @app.route('/index')
@@ -83,17 +77,18 @@ def room(link):
 	title = "BlueBoard | " + r.nickname
 	session['room'] = link
 	session['email'] = current_user.email
-	return render_template('room.html', title=title, room=r)
+	users = r.users.all()
+	return render_template('room.html', title=title, room=r, users=users)
 
 @app.route('/invite/<link>')
 @login_required
 def invite(link):
 	r = current_user.rooms.filter_by(link=link).first()
-	if r is None and Room.query.filter_by(link=link).first() is not None:
-		room = Room(link=link)
-		current_user.rooms.append(room)
+	desired_room = Room.query.filter_by(link=link).first()
+	if r is None and desired_room is not None:
+		current_user.rooms.append(desired_room)
 		db.session.commit()
-		return redirect('room', link=link)
+		return redirect(url_for('room', link=link))
 	return redirect('profile')
 
 @app.route('/profile/new-room', methods=['GET', 'POST'])
