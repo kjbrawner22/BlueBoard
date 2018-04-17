@@ -4,7 +4,7 @@ CrimsonHacks2018 - A collaborative study room app.
 ## Usage and Installation
 - To install you will need to proceed with the following steps:
   - Make sure you have python3 and pip3 installed on your machine
-  - Clone this repo and then run move in to the directory with `cd BlueBoard`
+  - Clone this repo and then move in to the directory with `cd BlueBoard`
   - make a virtual environment with `python3 -m venv venv`
   - activate the virtual environment with `source venv/bin/activate` or for windows cmd, `venv\Scripts\activate`
   - run `python3 install -r requirements.txt`
